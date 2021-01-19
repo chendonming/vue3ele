@@ -1,9 +1,9 @@
 <template>
   <div class="flex h-full">
-    <my-menu :data="data" class="w-64 shadow-md"/>
-    <div class="h-full flex-1 flex flex-col">
+    <my-menu :data="data" class="w-64 shadow-xl"/>
+    <div class="h-full flex-1 flex flex-col bg-gray-100">
       <sys-header/>
-      <div class="flex-1">
+      <div class="flex-1 pt-4">
         <router-view/>
       </div>
     </div>
@@ -11,7 +11,7 @@
 </template>
 
 <style scoped>
-@import '//at.alicdn.com/t/font_2333809_p0nuqbu8bj.css';
+@import '//at.alicdn.com/t/font_2333809_79imudaymij.css';
 </style>
 
 <script>
