@@ -1,23 +1,30 @@
 <template>
-  <div class="header p-3 flex items-center justify-between shadow-md bg-white">
-    <div>
-      <i class="cdmfont cdmcaidan cursor-pointer mr-6"></i>
-      <bread-crumbs :data="breakData"/>
+  <div class="header p-3 pb-0 shadow-md bg-white flex flex-col">
+    <div class="flex items-center justify-between">
+      <div>
+        <i class="cdmfont cdmcaidan cursor-pointer mr-6"></i>
+        <bread-crumbs :data="breakData"/>
+      </div>
+      <div>
+        <i class="cdmfont cursor-pointer" :class="{'cdmquanping': !fullScreen, 'cdmtuichuquanping': fullScreen} "
+           @click="toggleScreen"></i>
+      </div>
     </div>
-    <div>
-      <i class="cdmfont cursor-pointer" :class="{'cdmquanping': !fullScreen, 'cdmtuichuquanping': fullScreen} "
-         @click="toggleScreen"></i>
-    </div>
+    <sys-tabs/>
   </div>
 </template>
 
 <script>
 import BreadCrumbs from '@/components/BreadCrumbs'
 import { reactive, toRefs } from 'vue'
+import SysTabs from '@/components/SysTabs'
 
 export default {
   name: 'SysHeader',
-  components: { BreadCrumbs },
+  components: {
+    SysTabs,
+    BreadCrumbs
+  },
   setup () {
     const data = reactive({
       breakData: [

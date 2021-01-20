@@ -5,3 +5,15 @@
 :root, body, #app {
   height: 100%;
 }
+
+.SysTabs .el-tabs--card > .el-tabs__header .el-tabs__item {
+  border: 1px solid
+}
+
+.SysTabs .el-tabs__item .el-icon-close:hover {
+  @apply bg-primary
+}
+
+.SysTabs .el-tabs--card > .el-tabs__header {
+  @apply border-b-0
+}

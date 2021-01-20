@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-full">
-    <my-menu :data="data" class="w-64 shadow-xl"/>
+    <my-menu :data="data" class="w-20 md:w-64 shadow-xl"/>
     <div class="h-full flex-1 flex flex-col bg-gray-100">
       <sys-header/>
       <div class="flex-1 pt-4">
@@ -17,6 +17,7 @@
 <script>
 import MyMenu from '@/base/MyMenu'
 import SysHeader from '@/components/SysHeader'
+import { useRouter } from 'vue-router'
 
 export default {
   components: {
@@ -24,37 +25,12 @@ export default {
     MyMenu
   },
   setup () {
+    const router = useRouter()
     return {
-      data: [
-        {
-          id: '1',
-          title: '菜单一',
-          children: [
-            {
-              id: '2',
-              title: '子菜单1'
-            },
-            {
-              id: '3',
-              title: '子菜单2'
-            }
-          ]
-        },
-        {
-          id: '4',
-          title: '菜单二',
-          children: [
-            {
-              id: '5',
-              title: '子菜单1'
-            },
-            {
-              id: '6',
-              title: '子菜单2'
-            }
-          ]
-        }
-      ]
+      data: router.getRoutes().map(v => ({
+        id: Math.random() * 100 + '',
+        title: v.name
+      }))
     }
   }
 }
